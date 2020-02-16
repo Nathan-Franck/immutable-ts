@@ -20,7 +20,8 @@ export function immutableExample() {
         },
     };
 
-    // Can be used like normal, able to reach deep within the object and change its internals without anybody knowing 👎
+    // Can be used like normal, able to reach deep within the object
+    // and change its internals without anybody knowing 👎
     const stateA = {
         ink: "hi",
         metroFeud: { stamp: [{ozone: 1}] },
@@ -48,13 +49,15 @@ export function immutableExample() {
             ...stateB.metroFeud, stamp: [
                 ...stateB.metroFeud.stamp, { ozone: 2 }]}};
     // Equivalent of stateB.metroFeud.stamp.push({ozone: 2}) but made immutable!
-    // It means we can have less state variables [less chaos, bugs], because each variable can contain more meaning.
+    // It means we can have less state variables [less chaos, bugs],
+    // because each variable can contain more meaning.
 
     // You know something's changed since before because you can do this:
     if (stateB != nextStateB) {
         console.log("🚨 Something changed! ⚡ Update the views!");
     }
-    // Instead of having to loop though each member and element of stateB AND thingB to determine if a change has occured.
+    // Instead of having to loop though each member and element of
+    // stateB AND thingB to determine if a change has occured.
 
     // Overall, way easier to work with compared to ImmutableJS.
 }
