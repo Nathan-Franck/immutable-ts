@@ -62,3 +62,17 @@ if (stateB != nextStateB) {
 
 // Overall, way easier to work with compared to ImmutableJS.
 ```
+
+``` typescript
+// Turns out in complex codebases, recursive type definitions and generics don't cooperate well, as I started getting this fun bug ---
+// https://github.com/microsoft/TypeScript/issues/34933
+// It is better in this case to just define your original types with extra 'readonly' syntax for each member
+// which works just as well, just some extra visual noise 🌊
+type ImmutableState = {
+    readonly ink: string,
+    readonly metroFeud: {
+        readonly stamps: ReadonlyArray<{
+            readonly ozone: number,
+        }>,
+    },
+};
